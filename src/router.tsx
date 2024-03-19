@@ -1,9 +1,9 @@
-import ClientDataPage from '@/routes/client-data-page'
+import UserDataPage from '@/routes/user-data-page'
 import useStore from './hooks/use-store'
 
 const Router = () => {
   const { userData } = useStore()
-  if (!userData) return <ClientDataPage />
+  if (!userData) return <UserDataPage />
 }
 
 export default Router
