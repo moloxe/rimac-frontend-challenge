@@ -1,8 +1,42 @@
 import FamilyImage from '@/assets/images/user-data-page/family.png'
 import ArrowDown from '@/assets/images/icons/arrow-down.svg'
+import useStore from '@/hooks/use-store'
+import UserService from '@/services/user-service'
+import { useState } from 'react'
+import LoadingAnimation from '@/components/loading-animation'
 import './index.scss'
 
+// TODO: Implementar validación de formulario
 const UserDataForm = () => {
+  const [isLoading, setIsLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+  const { setUserData } = useStore()
+
+  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+    setIsLoading(true)
+    event.preventDefault()
+    const formData = new FormData(event.currentTarget)
+    const documentType = formData.get('document-type') as string
+    const documentNumber = formData.get('document-number') as string
+    const phoneNumber = formData.get('phone-number') as string
+    const userFormData = {
+      document: {
+        type: documentType,
+        number: documentNumber,
+      },
+      phoneNumber,
+    }
+
+    try {
+      const userData = await UserService.getUser(userFormData)
+      setUserData(userData)
+    } catch {
+      setErrorMessage('Error al obtener los datos del usuario.')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   return (
     <div className="user-data-form">
       <div className="user-data-form__hero">
@@ -28,13 +62,16 @@ const UserDataForm = () => {
             asesoría. 100% online.
           </p>
         </div>
-        <form className="user-data-form__container__form">
+        <form className="user-data-form__container__form" onSubmit={onSubmit}>
           <div className="user-data-form__container__form__fields">
             <div className="user-data-form__container__form__fields__document">
               <label className="user-data-form__container__form__fields__document--type">
-                <select className="user-data-form__container__form__fields__document--type--dropdown">
-                  <option value="dni">DNI</option>
-                  <option value="passport">Pasaporte</option>
+                <select
+                  className="user-data-form__container__form__fields__document--type--dropdown"
+                  name="document-type"
+                >
+                  <option value="DNI">DNI</option>
+                  <option value="PASSPORT">Pasaporte</option>
                 </select>
                 <img
                   className="user-data-form__container__form__fields__document--type--icon"
@@ -49,6 +86,7 @@ const UserDataForm = () => {
                   type="text"
                   placeholder="..."
                   className="user-data-form__container__form__fields__document--number--input"
+                  name="document-number"
                 />
               </label>
             </div>
@@ -60,6 +98,7 @@ const UserDataForm = () => {
                 className="user-data-form__container__form__fields__phone--input"
                 placeholder="..."
                 type="tel"
+                name="phone-number"
               />
             </label>
           </div>
@@ -85,12 +124,16 @@ const UserDataForm = () => {
               Aplican Términos y Condiciones.
             </a>
           </div>
-          <button
-            className="user-data-form__container__form__submit"
-            type="submit"
-          >
-            Cotiza aquí
-          </button>
+          {errorMessage && <p>Error: {errorMessage}</p>}
+          {isLoading && <LoadingAnimation />}
+          {!isLoading && (
+            <button
+              className="user-data-form__container__form__submit"
+              type="submit"
+            >
+              Cotiza aquí
+            </button>
+          )}
         </form>
       </div>
     </div>

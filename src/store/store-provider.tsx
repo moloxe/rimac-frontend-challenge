@@ -26,7 +26,12 @@ const StoreProvider: FC<{
   }, [])
 
   return (
-    <StoreContext.Provider value={{ userData, setUserData }}>
+    <StoreContext.Provider
+      value={{
+        userData,
+        setUserData,
+      }}
+    >
       {children}
     </StoreContext.Provider>
   )
