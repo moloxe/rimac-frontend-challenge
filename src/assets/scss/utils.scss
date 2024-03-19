@@ -4,7 +4,6 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 16px;
-  width: 100%;
   height: fit-content;
   max-width: $max-page-content-width;
   margin: auto;

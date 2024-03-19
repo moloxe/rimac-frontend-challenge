@@ -3,7 +3,7 @@
 @font-face {
   font-family: 'BR Sonoma';
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   src: url('/fonts/br-sonoma/BRSonoma-Regular-BF654c45266c042.otf');
   src: url('/fonts/br-sonoma/BRSonoma-Regular-BF654c45266c042.otf')
     format('font/otf') local('BR Sonoma Regular');
@@ -12,7 +12,16 @@
 @font-face {
   font-family: 'BR Sonoma';
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
+  src: url('/fonts/br-sonoma/BRSonoma-SemiBold-BF654c45268c340.otf');
+  src: url('/fonts/br-sonoma/BRSonoma-SemiBold-BF654c45268c340.otf')
+    format('font/otf') local('BR Sonoma Regular');
+}
+
+@font-face {
+  font-family: 'BR Sonoma';
+  font-style: normal;
+  font-weight: 700;
   src: url('/fonts/br-sonoma/BRSonoma-Bold-BF654c4526823f5.otf');
   src: url('/fonts/br-sonoma/BRSonoma-Bold-BF654c4526823f5.otf')
     format('font/otf') local('BR Sonoma Regular');
