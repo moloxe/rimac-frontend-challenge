@@ -1,8 +1,13 @@
 @import './assets/scss/reset.scss';
 @import './assets/scss/fonts.scss';
-@import './assets/scss/utils.scss';
+@import './assets/scss/variables.scss';
 
 body {
   font-family: 'BR Sonoma', sans-serif;
   color: $black;
+  background-color: $white;
+}
+
+input {
+  background-color: $white;
 }

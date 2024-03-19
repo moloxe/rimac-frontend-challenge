@@ -10,48 +10,59 @@ const LoginForm = () => {
       </div>
       <div className="login-form__container">
         <div className="login-form__container__info">
-          <div className="login-form__container__chip">
-            Seguro Salud Flexible
+          <div className="login-form__container__info__intro">
+            <div className="login-form__container__info__intro__chip">
+              Seguro Salud Flexible
+            </div>
+            <h1 className="login-form__container__info__intro__title">
+              Creado para ti y tu familia
+            </h1>
+            <img
+              className="login-form__container__info__intro__image"
+              src={FamilyImage}
+            />
           </div>
-          <h1 className="login-form__container__title">
-            Creado para ti y tu familia
-          </h1>
-          <p className="login-form__container__message">
+          <div className="login-form__container__info__mobile-spacer" />
+          <p className="login-form__container__info__message">
             Tú eliges cuánto pagar. Ingresa tus datos, cotiza y recibe nuestra
             asesoría. 100% online.
           </p>
         </div>
         <form className="login-form__container__form">
-          <div className="login-form__container__form__document">
-            <label className="login-form__container__form__document--type">
-              <select className="login-form__container__form__document--type--dropdown">
-                <option value="dni">DNI</option>
-                <option value="passport">Pasaporte</option>
-              </select>
-              <img
-                className="login-form__container__form__document--type--icon"
-                src={ArrowDown}
-              />
-            </label>
-            <label className="login-form__container__form__document--number">
-              <p className="login-form__container__form__document--number--label">
-                Nro. de documento
+          <div className="login-form__container__form__fields">
+            <div className="login-form__container__form__fields__document">
+              <label className="login-form__container__form__fields__document--type">
+                <select className="login-form__container__form__fields__document--type--dropdown">
+                  <option value="dni">DNI</option>
+                  <option value="passport">Pasaporte</option>
+                </select>
+                <img
+                  className="login-form__container__form__fields__document--type--icon"
+                  src={ArrowDown}
+                />
+              </label>
+              <label className="login-form__container__form__fields__document--number">
+                <p className="login-form__container__form__fields__document--number--label">
+                  Nro. de documento
+                </p>
+                <input
+                  type="text"
+                  placeholder="..."
+                  className="login-form__container__form__fields__document--number--input"
+                />
+              </label>
+            </div>
+            <label className="login-form__container__form__fields__phone">
+              <p className="login-form__container__form__fields__phone--label">
+                Celular
               </p>
               <input
-                type="text"
+                className="login-form__container__form__fields__phone--input"
                 placeholder="..."
-                className="login-form__container__form__document--number--input"
+                type="tel"
               />
             </label>
           </div>
-          <label className="login-form__container__form__phone">
-            <p className="login-form__container__form__phone--label">Celular</p>
-            <input
-              className="login-form__container__form__phone--input"
-              placeholder="..."
-              type="tel"
-            />
-          </label>
           <div className="login-form__container__form__conditions">
             <label>
               <input
