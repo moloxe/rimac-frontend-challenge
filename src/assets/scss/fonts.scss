@@ -1,10 +1,19 @@
 // https://befonts.com/br-sonoma-font-family.html
 
 @font-face {
-  font-family: 'BR Sonoma Regular';
+  font-family: 'BR Sonoma';
   font-style: normal;
   font-weight: normal;
   src: url('/fonts/br-sonoma/BRSonoma-Regular-BF654c45266c042.otf');
   src: url('/fonts/br-sonoma/BRSonoma-Regular-BF654c45266c042.otf')
+    format('font/otf') local('BR Sonoma Regular');
+}
+
+@font-face {
+  font-family: 'BR Sonoma';
+  font-style: normal;
+  font-weight: bold;
+  src: url('/fonts/br-sonoma/BRSonoma-Bold-BF654c4526823f5.otf');
+  src: url('/fonts/br-sonoma/BRSonoma-Bold-BF654c4526823f5.otf')
     format('font/otf') local('BR Sonoma Regular');
 }

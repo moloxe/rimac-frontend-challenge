@@ -2,6 +2,7 @@ import BlurAssetLeft from '@/assets/images/login/blur-asset-left.svg'
 import BlirAssetRight from '@/assets/images/login/blur-asset-right.svg'
 import BlurAssetLeftMobile from '@/assets/images/login/blur-asset-left-mobile.svg'
 import BlirAssetRightMobile from '@/assets/images/login/blur-asset-right-mobile.svg'
+import Header from '@/components/header/index'
 import FooterLogo from '@/assets/images/login/footer-logo.svg'
 import FooterLogoMobile from '@/assets/images/login/footer-logo-mobile.svg'
 import './index.scss'
@@ -28,6 +29,8 @@ const LoginPage = () => {
             src={BlirAssetRightMobile}
           />
         </div>
+        <Header />
+        <div className="login-page__content__form-container">Hola!</div>
       </div>
       <footer className="login-page__footer">
         <div className="login-page__footer__content">
