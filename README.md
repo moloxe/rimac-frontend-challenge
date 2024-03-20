@@ -54,7 +54,6 @@ Nota: Personalmente prefiero un approach entre SSG y SPA, sin embargo, por motiv
 
 - Para la validación de formularios se utilizó estándares web.
   - Ejemplo: Para el teléfono se utilizó los atributos `required`, `pattern="[+0-9]*"` y `type="tel"`.
-    Flujo de datos y manejo de estados:
 
 ### Pruebas
 
