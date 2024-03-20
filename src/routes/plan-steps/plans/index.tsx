@@ -56,6 +56,7 @@ const Plans: FC<Props> = ({ isPlanForSomeoneElse }) => {
         {isLoading && <LoadingAnimation />}
         {plans.map((plan) => {
           const price = processPlanPrice(plan, isPlanForSomeoneElse)
+          const oldPrice = isPlanForSomeoneElse ? plan.price : null
           const imageSrc = getImageSrc(plan)
           const isRecommended = plan.name === 'Plan en Casa y Clínica'
           return (
@@ -73,6 +74,11 @@ const Plans: FC<Props> = ({ isPlanForSomeoneElse }) => {
                   <p className="plans__options__plan--top__left--price-message">
                     COSTO DEL PLAN
                   </p>
+                  {oldPrice && (
+                    <p className="plans__options__plan--top__left--old-price">
+                      ${oldPrice} antes
+                    </p>
+                  )}
                   <h3 className="plans__options__plan--top__left--price">
                     ${price} al mes
                   </h3>
