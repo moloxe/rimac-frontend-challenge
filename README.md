@@ -46,7 +46,7 @@ Nota: Personalmente prefiero un approach entre SSG y SPA, sin embargo, por motiv
 ![Grid Screen 2](docs/images/grid-screen-2.png)
 
 - Responsive: Dado que no hubo diseños para viewport de tablet, no se visualizan bien algunos elementos en esa vista.
-- Tokens: Al no estar especificados, se complicó el uso tokens. No se pudo crear un token para todas las propiedades en el diseño. El caso ideal es mantener una lista de tokens entre desarrollo y diseño.
+- Tokens: Al no estar especificados, se complicó el uso de tokens. No se pudo crear un token para todas las propiedades en el diseño. El caso ideal es mantener una lista de tokens entre desarrollo y diseño.
 - Units: Es recomendado trabajar con REM o EM, sin embargo, se dejó en PX ya que así se encontró por defecto en el diseño.
 - Fonts: No pude encontrar las fuentes del diseño, pero se usó una similar con 3 niveles de fuentes: normal (400), semibold (600) y bold (700).
 
