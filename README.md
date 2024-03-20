@@ -38,6 +38,11 @@ Nota: Personalmente prefiero un approach entre SSG y SPA, sin embargo, por motiv
 ### Estilos:
 
 - Grid system: Se consideraron las grillas en una utilidad llamada `.grid-page`, ubicada en `src/assets/scss/utils.scss`.
+
+![Grid Screen 1](docs/images/grid-screen-1.png)
+![Grid Screen 1 Mobile](docs/images/grid-screen-1-mobile.png)
+![Grid Screen 2](docs/images/grid-screen-2.png)
+
 - Responsive: Dado que no hubo diseños para viewport de tablet, no se visualizan bien algunos elementos en esa vista.
 - Tokens: Al no estar especificados, se complicó el uso tokens. No se pudo crear un token para todas las propiedades en el diseño. El caso ideal es mantener una lista de tokens entre desarrollo y diseño.
 - Units: Es recomendado trabajar con REM o EM, sin embargo, se dejó en PX ya que así se encontró por defecto en el diseño.
