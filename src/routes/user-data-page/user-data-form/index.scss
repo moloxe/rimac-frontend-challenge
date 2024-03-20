@@ -232,7 +232,8 @@ $input-opaque: #5e6488;
           width: fit-content;
         }
       }
-      &__submit {
+      &__submit-button {
+        cursor: pointer;
         background-color: $black;
         color: $white;
         border-radius: 40px;

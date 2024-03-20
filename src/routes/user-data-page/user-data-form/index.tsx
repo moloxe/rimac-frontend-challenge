@@ -128,7 +128,7 @@ const UserDataForm = () => {
           {isLoading && <LoadingAnimation />}
           {!isLoading && (
             <button
-              className="user-data-form__container__form__submit"
+              className="user-data-form__container__form__submit-button"
               type="submit"
             >
               Cotiza aquí

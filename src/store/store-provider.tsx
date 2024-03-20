@@ -16,18 +16,19 @@ const setLocalStoreData = (storeData: StoreData) => {
 }
 
 type StoreContextProps = {
-  userData?: UserData
-  setUserData: (data: UserData) => void
+  userData: UserData | null
+  setUserData: (data: UserData | null) => void
 }
 
 export const StoreContext = createContext<StoreContextProps>({
+  userData: null,
   setUserData: () => {},
 })
 
 const StoreProvider: FC<{
   children: JSX.Element | JSX.Element[]
 }> = ({ children }) => {
-  const [userData, setUserData] = useState<UserData | undefined>(undefined)
+  const [userData, setUserData] = useState<UserData | null>(null)
 
   useEffect(() => {
     const { userData } = getLocalStoreData()

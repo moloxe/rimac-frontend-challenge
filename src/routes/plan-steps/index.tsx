@@ -6,6 +6,7 @@ import useStore from '@/hooks/use-store'
 import PlanForOption from './plan-for-option'
 import ForMeImage from '@/assets/images/plan-steps-page/for-me.svg'
 import ForSomeoneElseImage from '@/assets/images/plan-steps-page/for-someone-else.svg'
+import BackButton from '@/assets/images/icons/back-button.svg'
 import './index.scss'
 
 type PlanFor = 'deselected' | 'for-me' | 'for-someone-else'
@@ -13,11 +14,15 @@ type PlanFor = 'deselected' | 'for-me' | 'for-someone-else'
 const PlanStepsPage = () => {
   const [planFor, setPlanFor] = useState<PlanFor>('deselected')
   const isPlanChosen = planFor !== 'deselected'
-  const { userData } = useStore()
+  const { userData, setUserData } = useStore()
 
   function onChangePlanFor(newPlanFor: PlanFor) {
     if (newPlanFor === planFor) setPlanFor('deselected')
     else setPlanFor(newPlanFor)
+  }
+
+  function backToUserDataForm() {
+    setUserData(null)
   }
 
   return (
@@ -25,6 +30,13 @@ const PlanStepsPage = () => {
       <Header />
       <PlanStepsProgress isPlanChosen={isPlanChosen} />
       <div className="plan-stepts-page__plan-for">
+        <button
+          className="plan-stepts-page__plan-for__back-button"
+          onClick={backToUserDataForm}
+        >
+          <img src={BackButton} />
+          <p>Volver</p>
+        </button>
         <div className="plan-stepts-page__plan-for__description">
           <h1 className="plan-stepts-page__plan-for__description--title">
             {userData?.name} ¿Para quién deseas cotizar?
