@@ -6,8 +6,8 @@ import useStore from '@/hooks/use-store'
 import PlanForOption from './plan-for-option'
 import ForMeImage from '@/assets/images/plan-steps-page/for-me.svg'
 import ForSomeoneElseImage from '@/assets/images/plan-steps-page/for-someone-else.svg'
-import BackButton from '@/assets/images/icons/back-button.svg'
 import Summary from './summary'
+import BackButton from '@/back-button'
 import './index.scss'
 
 type PlanFor = 'deselected' | 'for-me' | 'for-someone-else'
@@ -15,7 +15,7 @@ type PlanFor = 'deselected' | 'for-me' | 'for-someone-else'
 const PlanStepsPage = () => {
   const [planFor, setPlanFor] = useState<PlanFor>('deselected')
   const isPlanForChosen = planFor !== 'deselected'
-  const { userData, setUserData, chosenPlan } = useStore()
+  const { userData, setUserData, chosenPlan, setChosenPlan } = useStore()
   const isFinished = chosenPlan !== null
 
   function onChangePlanFor(newPlanFor: PlanFor) {
@@ -27,28 +27,29 @@ const PlanStepsPage = () => {
     setUserData(null)
   }
 
+  function backToFirstStep() {
+    setChosenPlan(null)
+  }
+
   return (
-    <div className="plan-stepts-page">
+    <div className="plan-steps-page">
       <Header />
       <PlanStepsProgress isFinished={isFinished} />
       {!isFinished && (
-        <div className="plan-stepts-page__plan-for">
-          <button
-            className="plan-stepts-page__plan-for__back-button"
+        <div className="plan-steps-page__plan-for">
+          <BackButton
+            className="plan-steps-page__plan-for__back-button"
             onClick={backToUserDataForm}
-          >
-            <img src={BackButton} />
-            <p>Volver</p>
-          </button>
-          <div className="plan-stepts-page__plan-for__description">
-            <h1 className="plan-stepts-page__plan-for__description--title">
+          />
+          <div className="plan-steps-page__plan-for__description">
+            <h1 className="plan-steps-page__plan-for__description--title">
               {userData?.name} ¿Para quién deseas cotizar?
             </h1>
-            <p className="plan-stepts-page__plan-for__description--subtitle">
+            <p className="plan-steps-page__plan-for__description--subtitle">
               Selecciona la opción que se ajuste más a tus necesidades.
             </p>
           </div>
-          <div className="plan-stepts-page__plan-for__options">
+          <div className="plan-steps-page__plan-for__options">
             <PlanForOption
               active={planFor === 'for-me'}
               title="Para mi"
@@ -69,7 +70,15 @@ const PlanStepsPage = () => {
       {!isFinished && isPlanForChosen && (
         <Plans isForSomeoneElse={planFor === 'for-someone-else'} />
       )}
-      {isFinished && <Summary />}
+      {isFinished && (
+        <div className="plan-steps-page__summary">
+          <BackButton
+            className="plan-steps-page__summary__back-button"
+            onClick={backToFirstStep}
+          />
+          <Summary />
+        </div>
+      )}
     </div>
   )
 }

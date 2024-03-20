@@ -21,20 +21,20 @@ const PlanForOption: FC<Props> = ({
   return (
     <Card
       className={`
-      plan-stepts-page__plan-for__options__card${active ? '-active' : ''}`}
+      plan-steps-page__plan-for__options__card${active ? '-active' : ''}`}
       clickable
       onClick={onClick}
     >
       <img
-        className="plan-stepts-page__plan-for__options__image"
+        className="plan-steps-page__plan-for__options__image"
         src={imageSrc}
       />
-      <h2 className="plan-stepts-page__plan-for__options__title">{title}</h2>
-      <p className="plan-stepts-page__plan-for__options__description">
+      <h2 className="plan-steps-page__plan-for__options__title">{title}</h2>
+      <p className="plan-steps-page__plan-for__options__description">
         {description}
       </p>
       <img
-        className="plan-stepts-page__plan-for__options__checkbox"
+        className="plan-steps-page__plan-for__options__checkbox"
         src={active ? CheckBoxActive : CheckBoxDisabled}
       />
     </Card>
