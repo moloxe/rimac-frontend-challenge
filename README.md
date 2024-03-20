@@ -39,8 +39,10 @@ Nota: Personalmente prefiero un approach entre SSG y SPA, sin embargo, por motiv
 
 - Grid system: Se consideraron las grillas en una utilidad llamada `.grid-page`, ubicada en `src/assets/scss/utils.scss`.
 
-![Grid Screen 1](docs/images/grid-screen-1.png)
-![Grid Screen 1 Mobile](docs/images/grid-screen-1-mobile.png)
+|                   Grid Screen                   |                      Grid Screen Mobile                       |
+| :---------------------------------------------: | :-----------------------------------------------------------: |
+| ![Grid Screen 1](docs/images/grid-screen-1.png) | ![Grid Screen 1 Mobile](docs/images/grid-screen-1-mobile.png) |
+
 ![Grid Screen 2](docs/images/grid-screen-2.png)
 
 - Responsive: Dado que no hubo diseños para viewport de tablet, no se visualizan bien algunos elementos en esa vista.
