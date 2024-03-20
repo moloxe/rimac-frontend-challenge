@@ -30,7 +30,9 @@ const PlanForOption: FC<Props> = ({
         src={imageSrc}
       />
       <h2 className="plan-stepts-page__plan-for__options__title">{title}</h2>
-      <p>{description}</p>
+      <p className="plan-stepts-page__plan-for__options__description">
+        {description}
+      </p>
       <img
         className="plan-stepts-page__plan-for__options__checkbox"
         src={active ? CheckBoxActive : CheckBoxDisabled}

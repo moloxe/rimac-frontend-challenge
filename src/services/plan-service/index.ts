@@ -4,11 +4,12 @@ import { Plan } from '@/types/plan'
 import { PlanResponse } from './types'
 
 const PlanService = {
-  async getPlans(): Promise<Plan[]> {
+  async getPlansByAge(age: number): Promise<Plan[]> {
     const res = await fetch(`${BASE_URL}/plans.json`)
     if (!res.ok) throw new Error('Error fetching user')
     const planResponse = (await res.json()) as PlanResponse
-    return PlanMapper.toClient(planResponse)
+    const plans = PlanMapper.toClientFilterByAge(planResponse, age)
+    return plans
   },
 }
 

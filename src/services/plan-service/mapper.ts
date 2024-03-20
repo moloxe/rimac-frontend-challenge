@@ -2,8 +2,8 @@ import { PlanResponse } from './types'
 import { Plan } from '@/types/plan'
 
 const PlanMapper = {
-  toClient(planResponse: PlanResponse): Plan[] {
-    return planResponse.list
+  toClientFilterByAge(planResponse: PlanResponse, age: number): Plan[] {
+    return planResponse.list.filter((plan) => age <= plan.age)
   },
 }
 

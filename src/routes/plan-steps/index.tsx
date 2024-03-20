@@ -50,7 +50,9 @@ const PlanStepsPage = () => {
           />
         </div>
       </div>
-      {isPlanChosen && <Plans />}
+      {isPlanChosen && (
+        <Plans isForSomeoneElse={planFor === 'for-someone-else'} />
+      )}
     </div>
   )
 }
