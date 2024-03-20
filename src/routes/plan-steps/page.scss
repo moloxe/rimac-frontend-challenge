@@ -9,12 +9,13 @@
     margin-top: 40px;
     @media screen and (max-width: $mobile-width) {
       margin-top: 0;
-      padding: 32px $page-padding;
+      padding: 0 $page-padding 32px $page-padding;
     }
     &__back-button {
       width: fit-content;
       grid-area: 1/2/1/3;
       @media screen and (max-width: $mobile-width) {
+        display: none !important;
         grid-area: 1/1/1/5;
       }
     }
