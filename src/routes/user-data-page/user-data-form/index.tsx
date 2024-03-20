@@ -5,7 +5,6 @@ import UserService from '@/services/user-service'
 import { useState } from 'react'
 import LoadingAnimation from '@/components/loading-animation'
 import './index.scss'
-import { validateTextInput } from '@/utils/validation'
 
 const UserDataForm = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -86,9 +85,9 @@ const UserDataForm = () => {
                 <input
                   required
                   type="text"
-                  onKeyDown={validateTextInput}
                   minLength={8}
                   maxLength={16}
+                  pattern="[0-9]*"
                   placeholder="..."
                   className="user-data-form__container__form__fields__document--number--input"
                   name="document-number"
@@ -100,12 +99,11 @@ const UserDataForm = () => {
                 Celular
               </p>
               <input
-                required
+                pattern="[+0-9]*"
                 className="user-data-form__container__form__fields__phone--input"
-                onKeyDown={validateTextInput}
                 minLength={9}
                 placeholder="..."
-                type="text"
+                type="tel"
                 name="phone-number"
               />
             </label>

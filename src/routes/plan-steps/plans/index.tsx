@@ -4,7 +4,7 @@ import PlanService from '@/services/plan-service'
 import LoadingAnimation from '@/components/loading-animation'
 import Card from '@/components/card'
 import useStore from '@/hooks/use-store'
-import { stringDateToAge } from '@/utils/dates'
+import { dateDDMMYYYYToAge } from '@/utils/dates'
 import SaveHouse from '@/assets/images/icons/save-house.svg'
 import Clinic from '@/assets/images/icons/clinic.svg'
 import { processPlanPrice } from '@/utils/plan-prices'
@@ -37,7 +37,7 @@ const Plans: FC<Props> = ({ isPlanForSomeoneElse }) => {
       try {
         if (!userData?.birthDay)
           throw new Error('Fecha de nacimiento no disponible.')
-        const age = stringDateToAge(userData.birthDay)
+        const age = dateDDMMYYYYToAge(userData.birthDay)
         const plans = await PlanService.getPlansByAge(age)
         setPlans(plans)
       } catch {

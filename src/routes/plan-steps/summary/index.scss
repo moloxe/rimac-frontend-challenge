@@ -4,8 +4,7 @@
 .summary {
   @extend .grid-page;
   grid-template-rows: auto auto 1fr;
-  margin-top: 64px;
-  margin-bottom: 32px;
+  margin: 64px 0;
   @media screen and (max-width: $mobile-width) {
     margin: 0;
     padding: 0 $page-padding 32px $page-padding;

@@ -3,8 +3,8 @@ import { processPlanPrice } from '@/utils/plan-prices'
 import { FC, useMemo } from 'react'
 import Family from '@/assets/images/icons/family.svg'
 import Card from '@/components/card'
-import './index.scss'
 import BackButton from '@/back-button'
+import './index.scss'
 
 type Props = {
   isPlanForSomeoneElse: boolean
