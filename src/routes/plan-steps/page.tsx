@@ -7,7 +7,7 @@ import PlanForOption from './plan-for-option'
 import ForMeImage from '@/assets/images/plan-steps-page/for-me.svg'
 import ForSomeoneElseImage from '@/assets/images/plan-steps-page/for-someone-else.svg'
 import Summary from './summary'
-import BackButton from '@/back-button'
+import BackButton from '@/components/back-button'
 import './page.scss'
 
 type PlanFor = 'deselected' | 'for-me' | 'for-someone-else'
