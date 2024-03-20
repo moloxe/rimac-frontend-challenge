@@ -49,6 +49,14 @@ Nota: Personalmente prefiero un approach entre SSG y SPA, sin embargo, por motiv
   - Ejemplo: Para el teléfono se utilizó los atributos `required`, `pattern="[+0-9]*"` y `type="tel"`.
     Flujo de datos y manejo de estados:
 
+### Pruebas
+
+- Se utilizó `vitest` y `happy-dom` para las pruebas unitarias.
+- Se realizaron pruebas en algunos componentes, utilidades y servicios en los archivo:
+  - `src/routes/user-data-page/user-data-form/index.test.tsx`
+  - `src/services/user-service/index.test.tsx`
+  - `src/utils/dates.test.ts`
+
 ### Despliegue
 
 - Netlify: Se utilizó para el despliegue de la aplicación.

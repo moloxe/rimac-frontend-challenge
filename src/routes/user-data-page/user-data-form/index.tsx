@@ -105,6 +105,7 @@ const UserDataForm = () => {
                 placeholder="..."
                 type="tel"
                 name="phone-number"
+                required
               />
             </label>
           </div>
@@ -114,6 +115,7 @@ const UserDataForm = () => {
                 required
                 className="user-data-form__container__form__conditions--checkbox"
                 type="checkbox"
+                name="privacy-policy"
               />
               Acepto la Política de Privacidad
             </label>
@@ -122,6 +124,7 @@ const UserDataForm = () => {
                 required
                 className="user-data-form__container__form__conditions--checkbox"
                 type="checkbox"
+                name="commercial-communications"
               />
               Acepto la Política de Comunicaciones Comerciales
             </label>
