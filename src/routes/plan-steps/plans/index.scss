@@ -1,14 +1,28 @@
 @import './../../../assets/scss/utils.scss';
+@import './../../../assets/scss/variables.scss';
 
 .plans {
   @extend .grid-page;
-  margin-top: 20px;
   margin-bottom: 80px;
+  padding-top: 20px;
+  @media screen and (max-width: $mobile-width) {
+    padding: 20px $page-padding 20px $page-padding;
+    overflow: scroll;
+  }
   &__options {
     display: flex;
-    width: 100%;
-    grid-area: 1/2/1/12;
     gap: 32px;
+    grid-area: 1/2/1/12;
+    @media screen and (max-width: $mobile-width) {
+      grid-area: 1/1/1/5;
+    }
+    &--mobile-scroll-spacer {
+      display: none;
+      @media screen and (max-width: $mobile-width) {
+        display: block;
+        padding-left: 0.01px;
+      }
+    }
     &__plan {
       flex: 1;
       display: flex;
@@ -16,6 +30,9 @@
       align-items: flex-start;
       padding: 68px 32px 50px 32px;
       position: relative;
+      @media screen and (max-width: $mobile-width) {
+        min-width: 250px;
+      }
       &--recommended {
         position: absolute;
         display: flex;
@@ -58,11 +75,13 @@
       }
       &--description {
         list-style-type: disc;
+        line-height: 1.6;
         padding-left: 24px;
         display: flex;
         flex-direction: column;
         gap: 24px;
         margin-bottom: 40px;
+        font-size: 14px;
       }
       &--select-button {
         margin-top: auto;

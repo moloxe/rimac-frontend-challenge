@@ -7,8 +7,8 @@ import useStore from '@/hooks/use-store'
 import { stringDateToAge } from '@/utils/dates'
 import SaveHouse from '@/assets/images/icons/save-house.svg'
 import Clinic from '@/assets/images/icons/clinic.svg'
-import './plans.scss'
 import { processPlanPrice } from '@/utils/plan-prices'
+import './index.scss'
 
 type Props = {
   isPlanForSomeoneElse: boolean
@@ -52,7 +52,7 @@ const Plans: FC<Props> = ({ isPlanForSomeoneElse }) => {
   return (
     <div className="plans">
       <div className="plans__options">
-        {errorMessage && <div>{errorMessage}</div>}
+        {errorMessage && <p>{errorMessage}</p>}
         {isLoading && <LoadingAnimation />}
         {plans.map((plan) => {
           const price = processPlanPrice(plan, isPlanForSomeoneElse)
@@ -94,6 +94,7 @@ const Plans: FC<Props> = ({ isPlanForSomeoneElse }) => {
             </Card>
           )
         })}
+        <div className="plans__options--mobile-scroll-spacer" />
       </div>
     </div>
   )
