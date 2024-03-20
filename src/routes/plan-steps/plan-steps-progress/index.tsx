@@ -1,10 +1,13 @@
-import { useState } from 'react'
 import Step from './step'
 import StepSeparator from '@/assets/images/plan-steps-page/step-separator.svg'
+import { FC } from 'react'
 import './index.scss'
 
-const PlanStepsProgress = () => {
-  const [isPlanChosen, setIsPlanChosen] = useState(false)
+type Props = {
+  isPlanChosen: boolean
+}
+
+const PlanStepsProgress: FC<Props> = ({ isPlanChosen }) => {
   return (
     <div className="plan-steps-progress">
       <Step step="1" title="Planes y coberturas" active={!isPlanChosen} />
