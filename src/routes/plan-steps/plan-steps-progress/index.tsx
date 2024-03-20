@@ -4,15 +4,15 @@ import { FC } from 'react'
 import './index.scss'
 
 type Props = {
-  isPlanChosen: boolean
+  isFinished: boolean
 }
 
-const PlanStepsProgress: FC<Props> = ({ isPlanChosen }) => {
+const PlanStepsProgress: FC<Props> = ({ isFinished }) => {
   return (
     <div className="plan-steps-progress">
-      <Step step="1" title="Planes y coberturas" active={!isPlanChosen} />
+      <Step step="1" title="Planes y coberturas" active={!isFinished} />
       <img src={StepSeparator} />
-      <Step step="2" title="Resumen" active={isPlanChosen} />
+      <Step step="2" title="Resumen" active={isFinished} />
     </div>
   )
 }

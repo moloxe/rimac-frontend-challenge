@@ -1,3 +1,4 @@
+import { Plan } from '@/types/plan'
 import { StoreData } from '@/types/store-data'
 import { UserData } from '@/types/user-data'
 import { createContext, FC, JSX, useEffect, useState } from 'react'
@@ -18,17 +19,22 @@ const setLocalStoreData = (storeData: StoreData) => {
 type StoreContextProps = {
   userData: UserData | null
   setUserData: (data: UserData | null) => void
+  chosenPlan: Plan | null
+  setChosenPlan: (plan: Plan | null) => void
 }
 
 export const StoreContext = createContext<StoreContextProps>({
   userData: null,
   setUserData: () => {},
+  chosenPlan: null,
+  setChosenPlan: () => {},
 })
 
 const StoreProvider: FC<{
   children: JSX.Element | JSX.Element[]
 }> = ({ children }) => {
   const [userData, setUserData] = useState<UserData | null>(null)
+  const [chosenPlan, setChosenPlan] = useState<Plan | null>(null)
 
   useEffect(() => {
     const { userData } = getLocalStoreData()
@@ -45,6 +51,8 @@ const StoreProvider: FC<{
       value={{
         userData,
         setUserData,
+        chosenPlan,
+        setChosenPlan,
       }}
     >
       {children}

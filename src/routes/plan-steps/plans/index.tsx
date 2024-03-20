@@ -19,7 +19,7 @@ const Plans: FC<Props> = ({ isForSomeoneElse }) => {
   const [plans, setPlans] = useState<Plan[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [errorMessage, setErrorMessage] = useState('')
-  const { userData } = useStore()
+  const { userData, setChosenPlan } = useStore()
 
   function getPrice(plan: Plan) {
     let price = plan.price
@@ -35,6 +35,10 @@ const Plans: FC<Props> = ({ isForSomeoneElse }) => {
     if (plan.name === 'Plan en Casa y Clínica') return Clinic
     if (plan.name === 'Plan en Casa + Chequeo ') return SaveHouse
     return undefined
+  }
+
+  function onChoosePlan(plan: Plan) {
+    setChosenPlan(plan)
   }
 
   useEffect(() => {
@@ -91,7 +95,10 @@ const Plans: FC<Props> = ({ isForSomeoneElse }) => {
                   <li key={description}>{description}</li>
                 ))}
               </ul>
-              <button className="plans__options__plan--select-button">
+              <button
+                className="plans__options__plan--select-button"
+                onClick={() => onChoosePlan(plan)}
+              >
                 Seleccionar Plan
               </button>
             </Card>
