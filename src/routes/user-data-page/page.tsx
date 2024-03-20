@@ -45,7 +45,7 @@ const UserDataPage = () => {
           />
           <div className="user-data-page__footer__content__vertical-separator" />
           <p className="user-data-page__footer__content__copyright">
-            © 2023 RIMAC Seguros y Reaseguros.
+            © 2024 RIMAC Seguros y Reaseguros.
           </p>
         </div>
       </footer>
