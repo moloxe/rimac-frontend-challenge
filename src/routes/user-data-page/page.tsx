@@ -6,7 +6,7 @@ import Header from '@/components/header'
 import UserDataForm from './user-data-form'
 import FooterLogo from '@/assets/images/user-data-page/footer-logo.svg'
 import FooterLogoMobile from '@/assets/images/user-data-page/footer-logo-mobile.svg'
-import './index.scss'
+import './page.scss'
 
 const UserDataPage = () => {
   return (
