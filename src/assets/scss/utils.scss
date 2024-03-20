@@ -3,12 +3,12 @@
 .grid-page {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 16px;
+  column-gap: 16px;
   height: fit-content;
   max-width: $max-page-content-width;
   margin: auto;
   @media screen and (max-width: $mobile-width) {
     grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
+    column-gap: 8px;
   }
 }

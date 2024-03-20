@@ -8,27 +8,17 @@ import { stringDateToAge } from '@/utils/dates'
 import SaveHouse from '@/assets/images/icons/save-house.svg'
 import Clinic from '@/assets/images/icons/clinic.svg'
 import './plans.scss'
-
-const DISCOUNT_FOR_SOMEONE_ELSE = 0.05
+import { processPlanPrice } from '@/utils/plan-prices'
 
 type Props = {
-  isForSomeoneElse: boolean
+  isPlanForSomeoneElse: boolean
 }
 
-const Plans: FC<Props> = ({ isForSomeoneElse }) => {
+const Plans: FC<Props> = ({ isPlanForSomeoneElse }) => {
   const [plans, setPlans] = useState<Plan[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [errorMessage, setErrorMessage] = useState('')
   const { userData, setChosenPlan } = useStore()
-
-  function getPrice(plan: Plan) {
-    let price = plan.price
-    if (isForSomeoneElse) {
-      price = price - price * DISCOUNT_FOR_SOMEONE_ELSE
-      return price.toFixed(2)
-    }
-    return price
-  }
 
   function getImageSrc(plan: Plan) {
     if (plan.name === 'Plan en Casa') return SaveHouse
@@ -65,7 +55,7 @@ const Plans: FC<Props> = ({ isForSomeoneElse }) => {
         {errorMessage && <div>{errorMessage}</div>}
         {isLoading && <LoadingAnimation />}
         {plans.map((plan) => {
-          const price = getPrice(plan)
+          const price = processPlanPrice(plan, isPlanForSomeoneElse)
           const imageSrc = getImageSrc(plan)
           const isRecommended = plan.name === 'Plan en Casa y Clínica'
           return (

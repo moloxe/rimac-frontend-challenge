@@ -15,7 +15,8 @@ type PlanFor = 'deselected' | 'for-me' | 'for-someone-else'
 const PlanStepsPage = () => {
   const [planFor, setPlanFor] = useState<PlanFor>('deselected')
   const isPlanForChosen = planFor !== 'deselected'
-  const { userData, setUserData, chosenPlan, setChosenPlan } = useStore()
+  const isPlanForSomeoneElse = planFor === 'for-someone-else'
+  const { userData, setUserData, chosenPlan } = useStore()
   const isFinished = chosenPlan !== null
 
   function onChangePlanFor(newPlanFor: PlanFor) {
@@ -25,10 +26,6 @@ const PlanStepsPage = () => {
 
   function backToUserDataForm() {
     setUserData(null)
-  }
-
-  function backToFirstStep() {
-    setChosenPlan(null)
   }
 
   return (
@@ -68,17 +65,9 @@ const PlanStepsPage = () => {
         </div>
       )}
       {!isFinished && isPlanForChosen && (
-        <Plans isForSomeoneElse={planFor === 'for-someone-else'} />
+        <Plans isPlanForSomeoneElse={isPlanForSomeoneElse} />
       )}
-      {isFinished && (
-        <div className="plan-steps-page__summary">
-          <BackButton
-            className="plan-steps-page__summary__back-button"
-            onClick={backToFirstStep}
-          />
-          <Summary />
-        </div>
-      )}
+      {isFinished && <Summary isPlanForSomeoneElse={isPlanForSomeoneElse} />}
     </div>
   )
 }

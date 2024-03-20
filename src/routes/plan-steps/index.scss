@@ -71,10 +71,4 @@
       }
     }
   }
-  &__summary {
-    @extend .grid-page;
-    &__back-button {
-      grid-area: 1/2/1/3;
-    }
-  }
 }
