@@ -149,6 +149,7 @@ $input-opaque: #5e6488;
               position: absolute;
               top: 8px;
               left: 16px;
+              white-space: nowrap;
             }
             &--input {
               width: calc(100% - 16px);

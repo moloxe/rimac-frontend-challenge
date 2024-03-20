@@ -6,7 +6,6 @@ import { useState } from 'react'
 import LoadingAnimation from '@/components/loading-animation'
 import './index.scss'
 
-// TODO: Implementar validación de formulario
 const UserDataForm = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
@@ -67,6 +66,7 @@ const UserDataForm = () => {
             <div className="user-data-form__container__form__fields__document">
               <label className="user-data-form__container__form__fields__document--type">
                 <select
+                  required
                   className="user-data-form__container__form__fields__document--type--dropdown"
                   name="document-type"
                 >
@@ -83,6 +83,7 @@ const UserDataForm = () => {
                   Nro. de documento
                 </p>
                 <input
+                  required
                   type="text"
                   placeholder="..."
                   className="user-data-form__container__form__fields__document--number--input"
@@ -95,6 +96,7 @@ const UserDataForm = () => {
                 Celular
               </p>
               <input
+                required
                 className="user-data-form__container__form__fields__phone--input"
                 placeholder="..."
                 type="tel"
@@ -105,6 +107,7 @@ const UserDataForm = () => {
           <div className="user-data-form__container__form__conditions">
             <label>
               <input
+                required
                 className="user-data-form__container__form__conditions--checkbox"
                 type="checkbox"
               />
@@ -112,6 +115,7 @@ const UserDataForm = () => {
             </label>
             <label>
               <input
+                required
                 className="user-data-form__container__form__conditions--checkbox"
                 type="checkbox"
               />
